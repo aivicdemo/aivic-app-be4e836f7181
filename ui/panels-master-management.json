@@ -1,0 +1,1008 @@
+{
+  "systemId": "master-management",
+  "systemName": "マスタ管理",
+  "cssTheme": null,
+  "screens": [
+    {
+      "id": "master-sys-1778236059636",
+      "name": "偏差値基準マスタ管理",
+      "purpose": "偏差値計算の基準となる統計データや換算テーブルを管理するマスタテーブル",
+      "items": [
+        "偏差値基準マスタ一覧（検索・絞り込み）",
+        "[新規登録ボタン]→新規登録モーダル",
+        "[行クリック]→詳細・編集モーダル",
+        "[削除ボタン]→確認後削除",
+        "CSV インポート / エクスポート"
+      ]
+    },
+    {
+      "id": "master-sys-1778236059636",
+      "name": "合格ライン偏差値マスタ管理",
+      "purpose": "各学校・学部・学科の合格に必要な偏差値基準を管理するマスタテーブル",
+      "items": [
+        "合格ライン偏差値マスタ一覧（検索・絞り込み）",
+        "[新規登録ボタン]→新規登録モーダル",
+        "[行クリック]→詳細・編集モーダル",
+        "[削除ボタン]→確認後削除",
+        "CSV インポート / エクスポート"
+      ]
+    },
+    {
+      "id": "master-sys-1778236059636",
+      "name": "助言コンテンツマスタ管理",
+      "purpose": "受験生の成績状況や学習進捗に応じた個別助言コンテンツを管理し、保護者向けに適切なアドバイスを提供するためのマスタテーブル",
+      "items": [
+        "助言コンテンツマスタ一覧（検索・絞り込み）",
+        "[新規登録ボタン]→新規登録モーダル",
+        "[行クリック]→詳細・編集モーダル",
+        "[削除ボタン]→確認後削除",
+        "CSV インポート / エクスポート"
+      ]
+    },
+    {
+      "id": "master-web",
+      "name": "Webスクレイピング設定マスタ管理",
+      "purpose": "予備校や模試サイトからの成績データ自動取得のためのスクレイピング設定を管理する",
+      "items": [
+        "Webスクレイピング設定マスタ一覧（検索・絞り込み）",
+        "[新規登録ボタン]→新規登録モーダル",
+        "[行クリック]→詳細・編集モーダル",
+        "[削除ボタン]→確認後削除",
+        "CSV インポート / エクスポート"
+      ]
+    },
+    {
+      "id": "master-sys-1778236059636",
+      "name": "予備校サイト情報マスタ管理",
+      "purpose": "各予備校の公式サイトやデータ取得に必要な情報を管理し、成績データの自動取得や予備校情報の表示に使用する",
+      "items": [
+        "予備校サイト情報マスタ一覧（検索・絞り込み）",
+        "[新規登録ボタン]→新規登録モーダル",
+        "[行クリック]→詳細・編集モーダル",
+        "[削除ボタン]→確認後削除",
+        "CSV インポート / エクスポート"
+      ]
+    },
+    {
+      "id": "master-sys-1778236059636",
+      "name": "通知設定マスタ管理",
+      "purpose": "受験生保護者向けの各種通知設定を管理し、成績変動や模試結果、志望校合格可能性の変化などに応じた適切な通知を提供するためのマスタテーブル",
+      "items": [
+        "通知設定マスタ一覧（検索・絞り込み）",
+        "[新規登録ボタン]→新規登録モーダル",
+        "[行クリック]→詳細・編集モーダル",
+        "[削除ボタン]→確認後削除",
+        "CSV インポート / エクスポート"
+      ]
+    }
+  ],
+  "screenPanels": [
+    {
+      "screenId": "master-sys-1778236059636",
+      "panelHtml": "<h2 style=\"margin:0 0 12px\">偏差値基準マスタ管理</h2>\n<p class=\"muted\">偏差値計算の基準となる統計データや換算テーブルを管理するマスタテーブル</p>\n<ul style=\"padding-left:18px\"><li>偏差値基準マスタ一覧（検索・絞り込み）</li><li>[新規登録ボタン]→新規登録モーダル</li><li>[行クリック]→詳細・編集モーダル</li><li>[削除ボタン]→確認後削除</li><li>CSV インポート / エクスポート</li></ul>",
+      "initJs": "function(container, apiUrl, tables) {}",
+      "method": "template"
+    },
+    {
+      "screenId": "master-sys-1778236059636",
+      "panelHtml": "<h2 style=\"margin:0 0 12px\">合格ライン偏差値マスタ管理</h2>\n<p class=\"muted\">各学校・学部・学科の合格に必要な偏差値基準を管理するマスタテーブル</p>\n<ul style=\"padding-left:18px\"><li>合格ライン偏差値マスタ一覧（検索・絞り込み）</li><li>[新規登録ボタン]→新規登録モーダル</li><li>[行クリック]→詳細・編集モーダル</li><li>[削除ボタン]→確認後削除</li><li>CSV インポート / エクスポート</li></ul>",
+      "initJs": "function(container, apiUrl, tables) {}",
+      "method": "template"
+    },
+    {
+      "screenId": "master-sys-1778236059636",
+      "panelHtml": "<h2 style=\"margin:0 0 12px\">助言コンテンツマスタ管理</h2>\n<p class=\"muted\">受験生の成績状況や学習進捗に応じた個別助言コンテンツを管理し、保護者向けに適切なアドバイスを提供するためのマスタテーブル</p>\n<ul style=\"padding-left:18px\"><li>助言コンテンツマスタ一覧（検索・絞り込み）</li><li>[新規登録ボタン]→新規登録モーダル</li><li>[行クリック]→詳細・編集モーダル</li><li>[削除ボタン]→確認後削除</li><li>CSV インポート / エクスポート</li></ul>",
+      "initJs": "function(container, apiUrl, tables) {}",
+      "method": "template"
+    },
+    {
+      "screenId": "master-web",
+      "panelHtml": "<h2 style=\"margin:0 0 12px\">Webスクレイピング設定マスタ管理</h2>\n<p class=\"muted\">予備校や模試サイトからの成績データ自動取得のためのスクレイピング設定を管理する</p>\n<ul style=\"padding-left:18px\"><li>Webスクレイピング設定マスタ一覧（検索・絞り込み）</li><li>[新規登録ボタン]→新規登録モーダル</li><li>[行クリック]→詳細・編集モーダル</li><li>[削除ボタン]→確認後削除</li><li>CSV インポート / エクスポート</li></ul>",
+      "initJs": "function(container, apiUrl, tables) {}",
+      "method": "template"
+    },
+    {
+      "screenId": "master-sys-1778236059636",
+      "panelHtml": "<h2 style=\"margin:0 0 12px\">予備校サイト情報マスタ管理</h2>\n<p class=\"muted\">各予備校の公式サイトやデータ取得に必要な情報を管理し、成績データの自動取得や予備校情報の表示に使用する</p>\n<ul style=\"padding-left:18px\"><li>予備校サイト情報マスタ一覧（検索・絞り込み）</li><li>[新規登録ボタン]→新規登録モーダル</li><li>[行クリック]→詳細・編集モーダル</li><li>[削除ボタン]→確認後削除</li><li>CSV インポート / エクスポート</li></ul>",
+      "initJs": "function(container, apiUrl, tables) {}",
+      "method": "template"
+    },
+    {
+      "screenId": "master-sys-1778236059636",
+      "panelHtml": "<h2 style=\"margin:0 0 12px\">通知設定マスタ管理</h2>\n<p class=\"muted\">受験生保護者向けの各種通知設定を管理し、成績変動や模試結果、志望校合格可能性の変化などに応じた適切な通知を提供するためのマスタテーブル</p>\n<ul style=\"padding-left:18px\"><li>通知設定マスタ一覧（検索・絞り込み）</li><li>[新規登録ボタン]→新規登録モーダル</li><li>[行クリック]→詳細・編集モーダル</li><li>[削除ボタン]→確認後削除</li><li>CSV インポート / エクスポート</li></ul>",
+      "initJs": "function(container, apiUrl, tables) {}",
+      "method": "template"
+    }
+  ],
+  "tableDefinitions": [
+    {
+      "tableName": "偏差値基準マスタ",
+      "purpose": "偏差値計算の基準となる統計データや換算テーブルを管理するマスタテーブル",
+      "columns": [
+        {
+          "name": "偏差値基準ID",
+          "type": "uuid",
+          "required": true,
+          "description": "偏差値基準の一意識別子（主キー）"
+        },
+        {
+          "name": "基準名",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "偏差値基準の名称（例：全国模試基準、県内基準等）"
+        },
+        {
+          "name": "基準コード",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "偏差値基準の識別コード"
+        },
+        {
+          "name": "対象学年",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "適用対象学年（中1、中2、中3、高1、高2、高3等）"
+        },
+        {
+          "name": "教科名",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "対象教科名（国語、数学、英語、理科、社会等）"
+        },
+        {
+          "name": "試験種別",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "試験の種別（模試、定期テスト、実力テスト等）"
+        },
+        {
+          "name": "実施年度",
+          "type": "integer",
+          "required": true,
+          "description": "基準データの実施年度"
+        },
+        {
+          "name": "実施月",
+          "type": "integer",
+          "required": true,
+          "description": "基準データの実施月"
+        },
+        {
+          "name": "母集団数",
+          "type": "integer",
+          "required": true,
+          "description": "偏差値計算の母集団となる受験者数"
+        },
+        {
+          "name": "平均点",
+          "type": "integer",
+          "required": true,
+          "description": "母集団の平均点"
+        },
+        {
+          "name": "標準偏差",
+          "type": "integer",
+          "required": true,
+          "description": "母集団の標準偏差（小数点以下は整数化して保存）"
+        },
+        {
+          "name": "満点",
+          "type": "integer",
+          "required": true,
+          "description": "試験の満点"
+        },
+        {
+          "name": "最高点",
+          "type": "integer",
+          "required": true,
+          "description": "母集団の最高得点"
+        },
+        {
+          "name": "最低点",
+          "type": "integer",
+          "required": true,
+          "description": "母集団の最低得点"
+        },
+        {
+          "name": "地域区分",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "地域区分（全国、都道府県、市区町村等）"
+        },
+        {
+          "name": "学校区分",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "学校区分（公立、私立、国立等）"
+        },
+        {
+          "name": "偏差値上限",
+          "type": "integer",
+          "required": true,
+          "description": "計算される偏差値の上限値"
+        },
+        {
+          "name": "偏差値下限",
+          "type": "integer",
+          "required": true,
+          "description": "計算される偏差値の下限値"
+        },
+        {
+          "name": "適用開始日",
+          "type": "timestamp",
+          "required": true,
+          "description": "この基準の適用開始日時"
+        },
+        {
+          "name": "適用終了日",
+          "type": "timestamp",
+          "required": false,
+          "description": "この基準の適用終了日時"
+        },
+        {
+          "name": "有効フラグ",
+          "type": "boolean",
+          "required": true,
+          "description": "基準データの有効/無効フラグ"
+        },
+        {
+          "name": "備考",
+          "type": "text",
+          "required": false,
+          "description": "基準データに関する補足情報や注意事項"
+        },
+        {
+          "name": "作成日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード作成日時"
+        },
+        {
+          "name": "更新日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード最終更新日時"
+        },
+        {
+          "name": "作成者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "レコード作成者の管理者ID"
+        },
+        {
+          "name": "更新者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "レコード最終更新者の管理者ID"
+        }
+      ]
+    },
+    {
+      "tableName": "合格ライン偏差値マスタ",
+      "purpose": "各学校・学部・学科の合格に必要な偏差値基準を管理するマスタテーブル",
+      "columns": [
+        {
+          "name": "合格ライン偏差値ID",
+          "type": "uuid",
+          "required": true,
+          "description": "合格ライン偏差値マスタの一意識別子"
+        },
+        {
+          "name": "学校ID",
+          "type": "uuid",
+          "required": true,
+          "description": "学校マスタへの外部キー"
+        },
+        {
+          "name": "学部ID",
+          "type": "uuid",
+          "required": false,
+          "description": "学部マスタへの外部キー"
+        },
+        {
+          "name": "学科ID",
+          "type": "uuid",
+          "required": false,
+          "description": "学科マスタへの外部キー"
+        },
+        {
+          "name": "入試方式ID",
+          "type": "uuid",
+          "required": true,
+          "description": "入試方式マスタへの外部キー"
+        },
+        {
+          "name": "年度",
+          "type": "integer",
+          "required": true,
+          "description": "対象年度"
+        },
+        {
+          "name": "合格ライン偏差値",
+          "type": "integer",
+          "required": true,
+          "description": "合格に必要な偏差値"
+        },
+        {
+          "name": "安全圏偏差値",
+          "type": "integer",
+          "required": false,
+          "description": "安全圏とされる偏差値"
+        },
+        {
+          "name": "挑戦圏偏差値",
+          "type": "integer",
+          "required": false,
+          "description": "挑戦圏とされる偏差値"
+        },
+        {
+          "name": "データ提供元",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "偏差値データの提供元"
+        },
+        {
+          "name": "データ更新日",
+          "type": "timestamp",
+          "required": true,
+          "description": "データが更新された日時"
+        },
+        {
+          "name": "備考",
+          "type": "text",
+          "required": false,
+          "description": "補足情報や注意事項"
+        },
+        {
+          "name": "有効フラグ",
+          "type": "boolean",
+          "required": true,
+          "description": "データの有効性フラグ"
+        },
+        {
+          "name": "作成日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード作成日時"
+        },
+        {
+          "name": "更新日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード更新日時"
+        }
+      ]
+    },
+    {
+      "tableName": "助言コンテンツマスタ",
+      "purpose": "受験生の成績状況や学習進捗に応じた個別助言コンテンツを管理し、保護者向けに適切なアドバイスを提供するためのマスタテーブル",
+      "columns": [
+        {
+          "name": "助言コンテンツID",
+          "type": "uuid",
+          "required": true,
+          "description": "助言コンテンツの一意識別子"
+        },
+        {
+          "name": "助言カテゴリ",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "助言の分類（学習方法、志望校選択、メンタルケア、進路相談等）"
+        },
+        {
+          "name": "助言タイトル",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "助言コンテンツのタイトル"
+        },
+        {
+          "name": "助言内容",
+          "type": "text",
+          "required": true,
+          "description": "具体的な助言メッセージ本文"
+        },
+        {
+          "name": "対象偏差値下限",
+          "type": "integer",
+          "required": false,
+          "description": "この助言が適用される偏差値の下限値"
+        },
+        {
+          "name": "対象偏差値上限",
+          "type": "integer",
+          "required": false,
+          "description": "この助言が適用される偏差値の上限値"
+        },
+        {
+          "name": "対象学年",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "助言対象の学年（高1、高2、高3、浪人生等）"
+        },
+        {
+          "name": "対象時期",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "助言が有効な時期（春期、夏期、秋期、冬期、直前期等）"
+        },
+        {
+          "name": "成績推移パターン",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "適用される成績推移の傾向（上昇、下降、停滞、急上昇、急下降等）"
+        },
+        {
+          "name": "合格可能性範囲下限",
+          "type": "integer",
+          "required": false,
+          "description": "助言対象となる合格可能性の下限パーセンテージ"
+        },
+        {
+          "name": "合格可能性範囲上限",
+          "type": "integer",
+          "required": false,
+          "description": "助言対象となる合格可能性の上限パーセンテージ"
+        },
+        {
+          "name": "優先度",
+          "type": "integer",
+          "required": true,
+          "description": "助言表示の優先順位（数値が小さいほど高優先）"
+        },
+        {
+          "name": "表示フラグ",
+          "type": "boolean",
+          "required": true,
+          "description": "助言コンテンツの表示可否"
+        },
+        {
+          "name": "緊急度",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "助言の緊急度レベル（高、中、低）"
+        },
+        {
+          "name": "助言種別",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "助言の種類（推奨、注意、警告、励まし等）"
+        },
+        {
+          "name": "関連URL",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "参考資料や詳細情報へのリンクURL"
+        },
+        {
+          "name": "作成者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "助言コンテンツを作成した管理者のID"
+        },
+        {
+          "name": "承認者ID",
+          "type": "uuid",
+          "required": false,
+          "description": "助言コンテンツを承認した責任者のID"
+        },
+        {
+          "name": "有効開始日",
+          "type": "timestamp",
+          "required": true,
+          "description": "助言コンテンツの有効期間開始日時"
+        },
+        {
+          "name": "有効終了日",
+          "type": "timestamp",
+          "required": false,
+          "description": "助言コンテンツの有効期間終了日時"
+        },
+        {
+          "name": "作成日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード作成日時"
+        },
+        {
+          "name": "更新日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード最終更新日時"
+        }
+      ]
+    },
+    {
+      "tableName": "Webスクレイピング設定マスタ",
+      "purpose": "予備校や模試サイトからの成績データ自動取得のためのスクレイピング設定を管理する",
+      "columns": [
+        {
+          "name": "スクレイピング設定ID",
+          "type": "uuid",
+          "required": true,
+          "description": "スクレイピング設定の一意識別子"
+        },
+        {
+          "name": "設定名",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "スクレイピング設定の名称"
+        },
+        {
+          "name": "対象サイト名",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "スクレイピング対象の予備校・模試サイト名"
+        },
+        {
+          "name": "ベースURL",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "スクレイピング対象サイトのベースURL"
+        },
+        {
+          "name": "ログインURL",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "ログインが必要な場合のログインページURL"
+        },
+        {
+          "name": "データ取得URL",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "成績データを取得するページのURL"
+        },
+        {
+          "name": "ユーザー名フィールド名",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "ログインフォームのユーザー名入力フィールドのname属性"
+        },
+        {
+          "name": "パスワードフィールド名",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "ログインフォームのパスワード入力フィールドのname属性"
+        },
+        {
+          "name": "ログインボタンセレクタ",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "ログインボタンのCSSセレクタ"
+        },
+        {
+          "name": "成績データセレクタ",
+          "type": "text",
+          "required": true,
+          "description": "成績データを抽出するためのCSSセレクタ"
+        },
+        {
+          "name": "科目名セレクタ",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "科目名を抽出するためのCSSセレクタ"
+        },
+        {
+          "name": "得点セレクタ",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "得点を抽出するためのCSSセレクタ"
+        },
+        {
+          "name": "偏差値セレクタ",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "偏差値を抽出するためのCSSセレクタ"
+        },
+        {
+          "name": "順位セレクタ",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "順位を抽出するためのCSSセレクタ"
+        },
+        {
+          "name": "実施日セレクタ",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "模試実施日を抽出するためのCSSセレクタ"
+        },
+        {
+          "name": "待機時間秒",
+          "type": "integer",
+          "required": true,
+          "description": "ページ読み込み後の待機時間（秒）"
+        },
+        {
+          "name": "リトライ回数",
+          "type": "integer",
+          "required": true,
+          "description": "スクレイピング失敗時のリトライ回数"
+        },
+        {
+          "name": "タイムアウト秒",
+          "type": "integer",
+          "required": true,
+          "description": "スクレイピング処理のタイムアウト時間（秒）"
+        },
+        {
+          "name": "ヘッダー情報",
+          "type": "text",
+          "required": false,
+          "description": "リクエスト時に設定するHTTPヘッダー情報"
+        },
+        {
+          "name": "認証方式",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "認証方式（Basic認証、OAuth等）"
+        },
+        {
+          "name": "データ形式",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "取得データの形式（HTML、JSON、CSV等）"
+        },
+        {
+          "name": "文字エンコーディング",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "対象サイトの文字エンコーディング"
+        },
+        {
+          "name": "実行頻度",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "自動実行の頻度設定"
+        },
+        {
+          "name": "最終実行日時",
+          "type": "timestamp",
+          "required": false,
+          "description": "最後にスクレイピングを実行した日時"
+        },
+        {
+          "name": "次回実行予定日時",
+          "type": "timestamp",
+          "required": false,
+          "description": "次回スクレイピング実行予定日時"
+        },
+        {
+          "name": "有効フラグ",
+          "type": "boolean",
+          "required": true,
+          "description": "設定が有効かどうか"
+        },
+        {
+          "name": "自動実行フラグ",
+          "type": "boolean",
+          "required": true,
+          "description": "自動実行を行うかどうか"
+        },
+        {
+          "name": "エラー通知フラグ",
+          "type": "boolean",
+          "required": true,
+          "description": "エラー発生時に通知を行うかどうか"
+        },
+        {
+          "name": "作成日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード作成日時"
+        },
+        {
+          "name": "更新日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード最終更新日時"
+        },
+        {
+          "name": "作成者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "設定を作成したユーザーのID"
+        },
+        {
+          "name": "更新者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "設定を最後に更新したユーザーのID"
+        }
+      ]
+    },
+    {
+      "tableName": "予備校サイト情報マスタ",
+      "purpose": "各予備校の公式サイトやデータ取得に必要な情報を管理し、成績データの自動取得や予備校情報の表示に使用する",
+      "columns": [
+        {
+          "name": "予備校サイト情報ID",
+          "type": "uuid",
+          "required": true,
+          "description": "予備校サイト情報の一意識別子"
+        },
+        {
+          "name": "予備校名",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "予備校の正式名称"
+        },
+        {
+          "name": "予備校略称",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "予備校の略称や通称"
+        },
+        {
+          "name": "公式サイトURL",
+          "type": "text",
+          "required": true,
+          "description": "予備校の公式サイトのURL"
+        },
+        {
+          "name": "成績確認サイトURL",
+          "type": "text",
+          "required": false,
+          "description": "生徒用成績確認サイトのURL"
+        },
+        {
+          "name": "ログインページURL",
+          "type": "text",
+          "required": false,
+          "description": "成績確認システムのログインページURL"
+        },
+        {
+          "name": "API提供有無",
+          "type": "boolean",
+          "required": true,
+          "description": "成績データ取得用APIの提供有無"
+        },
+        {
+          "name": "APIURL",
+          "type": "text",
+          "required": false,
+          "description": "成績データ取得用APIのエンドポイントURL"
+        },
+        {
+          "name": "APIキー",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "API利用時の認証キー"
+        },
+        {
+          "name": "スクレイピング対応有無",
+          "type": "boolean",
+          "required": true,
+          "description": "Webスクレイピングによるデータ取得対応有無"
+        },
+        {
+          "name": "データ更新頻度",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "成績データの更新頻度（日次、週次等）"
+        },
+        {
+          "name": "対応模試種別",
+          "type": "text",
+          "required": false,
+          "description": "この予備校で実施される模試の種別"
+        },
+        {
+          "name": "偏差値算出方式",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "この予備校独自の偏差値算出方式"
+        },
+        {
+          "name": "成績表示形式",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "成績の表示形式（点数、偏差値、ランク等）"
+        },
+        {
+          "name": "データ取得可能期間",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "過去何ヶ月分のデータが取得可能か"
+        },
+        {
+          "name": "連携開始日",
+          "type": "timestamp",
+          "required": false,
+          "description": "このシステムとの連携を開始した日付"
+        },
+        {
+          "name": "連携終了日",
+          "type": "timestamp",
+          "required": false,
+          "description": "連携を終了した場合の終了日付"
+        },
+        {
+          "name": "利用可能状態",
+          "type": "boolean",
+          "required": true,
+          "description": "現在利用可能かどうかの状態"
+        },
+        {
+          "name": "備考",
+          "type": "text",
+          "required": false,
+          "description": "予備校サイト情報に関する補足事項"
+        },
+        {
+          "name": "作成日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード作成日時"
+        },
+        {
+          "name": "更新日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード最終更新日時"
+        }
+      ]
+    },
+    {
+      "tableName": "通知設定マスタ",
+      "purpose": "受験生保護者向けの各種通知設定を管理し、成績変動や模試結果、志望校合格可能性の変化などに応じた適切な通知を提供するためのマスタテーブル",
+      "columns": [
+        {
+          "name": "通知設定ID",
+          "type": "uuid",
+          "required": true,
+          "description": "通知設定を一意に識別するID"
+        },
+        {
+          "name": "受験生ID",
+          "type": "uuid",
+          "required": true,
+          "description": "通知対象の受験生を識別するID"
+        },
+        {
+          "name": "保護者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "通知を受け取る保護者を識別するID"
+        },
+        {
+          "name": "通知種別コード",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "通知の種類を表すコード（成績更新、模試結果、合格可能性変動、学習アドバイス等）"
+        },
+        {
+          "name": "通知種別名",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "通知種別の表示名"
+        },
+        {
+          "name": "通知方法",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "通知手段（アプリ内通知、メール、SMS、プッシュ通知等）"
+        },
+        {
+          "name": "通知有効フラグ",
+          "type": "boolean",
+          "required": true,
+          "description": "この通知設定が有効かどうか"
+        },
+        {
+          "name": "通知タイミング",
+          "type": "varchar(100)",
+          "required": true,
+          "description": "通知を送信するタイミング（即座、日次、週次、月次等）"
+        },
+        {
+          "name": "通知時刻",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "定期通知の場合の送信時刻（HH:MM形式）"
+        },
+        {
+          "name": "通知曜日",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "週次通知の場合の送信曜日"
+        },
+        {
+          "name": "通知日",
+          "type": "integer",
+          "required": false,
+          "description": "月次通知の場合の送信日（1-31）"
+        },
+        {
+          "name": "偏差値変動閾値",
+          "type": "integer",
+          "required": false,
+          "description": "偏差値変動通知を送信する変動幅の閾値"
+        },
+        {
+          "name": "合格可能性変動閾値",
+          "type": "integer",
+          "required": false,
+          "description": "合格可能性変動通知を送信する変動幅の閾値（%）"
+        },
+        {
+          "name": "成績順位変動閾値",
+          "type": "integer",
+          "required": false,
+          "description": "成績順位変動通知を送信する順位変動の閾値"
+        },
+        {
+          "name": "対象科目",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "通知対象とする科目（全科目、特定科目等）"
+        },
+        {
+          "name": "対象模試種別",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "通知対象とする模試の種別"
+        },
+        {
+          "name": "通知メッセージテンプレート",
+          "type": "text",
+          "required": false,
+          "description": "通知メッセージのテンプレート文"
+        },
+        {
+          "name": "通知優先度",
+          "type": "integer",
+          "required": true,
+          "description": "通知の優先度（1:高、2:中、3:低）"
+        },
+        {
+          "name": "通知頻度制限",
+          "type": "varchar(100)",
+          "required": false,
+          "description": "同種通知の送信頻度制限（1日1回、1週間1回等）"
+        },
+        {
+          "name": "最終通知日時",
+          "type": "timestamp",
+          "required": false,
+          "description": "この設定で最後に通知を送信した日時"
+        },
+        {
+          "name": "通知開始日",
+          "type": "timestamp",
+          "required": false,
+          "description": "通知設定の有効開始日"
+        },
+        {
+          "name": "通知終了日",
+          "type": "timestamp",
+          "required": false,
+          "description": "通知設定の有効終了日"
+        },
+        {
+          "name": "作成日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード作成日時"
+        },
+        {
+          "name": "更新日時",
+          "type": "timestamp",
+          "required": true,
+          "description": "レコード最終更新日時"
+        },
+        {
+          "name": "作成者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "設定を作成したユーザーのID"
+        },
+        {
+          "name": "更新者ID",
+          "type": "uuid",
+          "required": true,
+          "description": "設定を最後に更新したユーザーのID"
+        }
+      ]
+    }
+  ],
+  "presetSeedData": {}
+}
