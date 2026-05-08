@@ -1,0 +1,11 @@
+openapi: 3.0.3
+info:
+  title: 受験生保護者向け成績管理アプリの開発 API
+  version: 0.1.0
+paths:
+  /resources:
+    get:
+      summary: /resources GET
+      responses:
+        '200':
+          description: OK
