@@ -1,0 +1,705 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Description: >
+  AIVIC Backend — 受験生保護者向け成績管理アプリの開発
+  DynamoDB + Lambda + API Gateway
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: nodejs20.x
+    Environment:
+      Variables:
+        NODE_ENV: production
+
+Parameters:
+  StageName:
+    Type: String
+    Default: prod
+    Description: API Gateway stage name
+
+Resources:
+  # ── DynamoDB テーブル ──────────────────────────────────────────
+
+  DynamoDBTable0:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table0"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "0"
+        - Key: TableName
+          Value: "偏差値基準マスタ"
+
+  DynamoDBTable1:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table1"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "1"
+        - Key: TableName
+          Value: "合格ライン偏差値マスタ"
+
+  DynamoDBTable2:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table2"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "2"
+        - Key: TableName
+          Value: "予備校成績データ"
+
+  DynamoDBTable3:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table3"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "3"
+        - Key: TableName
+          Value: "模試結果データ"
+
+  DynamoDBTable4:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table4"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "4"
+        - Key: TableName
+          Value: "科目別成績データ"
+
+  DynamoDBTable5:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table5"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "5"
+        - Key: TableName
+          Value: "偏差値履歴データ"
+
+  DynamoDBTable6:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table6"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "6"
+        - Key: TableName
+          Value: "模試日程データ"
+
+  DynamoDBTable7:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table7"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "7"
+        - Key: TableName
+          Value: "志望校登録データ"
+
+  DynamoDBTable8:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table8"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "8"
+        - Key: TableName
+          Value: "合格可能性算出結果"
+
+  DynamoDBTable9:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table9"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "9"
+        - Key: TableName
+          Value: "成績推移分析結果"
+
+  DynamoDBTable10:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table10"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "10"
+        - Key: TableName
+          Value: "科目別分析結果"
+
+  DynamoDBTable11:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table11"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "11"
+        - Key: TableName
+          Value: "助言コンテンツマスタ"
+
+  DynamoDBTable12:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table12"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "12"
+        - Key: TableName
+          Value: "助言提案履歴"
+
+  DynamoDBWeb:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table13"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "13"
+        - Key: TableName
+          Value: "Webスクレイピング設定マスタ"
+
+  DynamoDBTable14:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table14"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "14"
+        - Key: TableName
+          Value: "予備校サイト情報マスタ"
+
+  DynamoDBTable15:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table15"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "15"
+        - Key: TableName
+          Value: "データ取得ログ"
+
+  DynamoDBTable16:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table16"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "16"
+        - Key: TableName
+          Value: "成績データ統合履歴"
+
+  DynamoDBTable17:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table17"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "17"
+        - Key: TableName
+          Value: "グラフ表示設定"
+
+  DynamoDBTable18:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table18"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "18"
+        - Key: TableName
+          Value: "通知設定マスタ"
+
+  DynamoDBTable19:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table19"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "19"
+        - Key: TableName
+          Value: "通知履歴"
+
+  DynamoDBTable20:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table20"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "20"
+        - Key: TableName
+          Value: "ログイン履歴"
+
+  DynamoDBTable21:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table21"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "21"
+        - Key: TableName
+          Value: "システム利用ログ"
+
+  DynamoDBTable22:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table22"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "22"
+        - Key: TableName
+          Value: "データ変更履歴"
+
+  DynamoDBTable23:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table23"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "23"
+        - Key: TableName
+          Value: "エラーログ"
+
+  DynamoDBTable24:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-table24"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: System
+          Value: 受験生保護者向け成績管理アプリの開発
+        - Key: TableIndex
+          Value: "24"
+        - Key: TableName
+          Value: "バッチ処理履歴"
+
+  # ── Lambda 関数 ───────────────────────────────────────────────
+  AivicApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-api"
+      CodeUri: lambda/
+      Handler: handler.handler
+      Description: "AIVIC CRUD API for 受験生保護者向け成績管理アプリの開発"
+      Environment:
+        Variables:
+        AIVIC_TABLE_0: !Ref DynamoDBTable0
+        AIVIC_TABLE_1: !Ref DynamoDBTable1
+        AIVIC_TABLE_2: !Ref DynamoDBTable2
+        AIVIC_TABLE_3: !Ref DynamoDBTable3
+        AIVIC_TABLE_4: !Ref DynamoDBTable4
+        AIVIC_TABLE_5: !Ref DynamoDBTable5
+        AIVIC_TABLE_6: !Ref DynamoDBTable6
+        AIVIC_TABLE_7: !Ref DynamoDBTable7
+        AIVIC_TABLE_8: !Ref DynamoDBTable8
+        AIVIC_TABLE_9: !Ref DynamoDBTable9
+        AIVIC_TABLE_10: !Ref DynamoDBTable10
+        AIVIC_TABLE_11: !Ref DynamoDBTable11
+        AIVIC_TABLE_12: !Ref DynamoDBTable12
+        AIVIC_TABLE_13: !Ref DynamoDBWeb
+        AIVIC_TABLE_14: !Ref DynamoDBTable14
+        AIVIC_TABLE_15: !Ref DynamoDBTable15
+        AIVIC_TABLE_16: !Ref DynamoDBTable16
+        AIVIC_TABLE_17: !Ref DynamoDBTable17
+        AIVIC_TABLE_18: !Ref DynamoDBTable18
+        AIVIC_TABLE_19: !Ref DynamoDBTable19
+        AIVIC_TABLE_20: !Ref DynamoDBTable20
+        AIVIC_TABLE_21: !Ref DynamoDBTable21
+        AIVIC_TABLE_22: !Ref DynamoDBTable22
+        AIVIC_TABLE_23: !Ref DynamoDBTable23
+        AIVIC_TABLE_24: !Ref DynamoDBTable24
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+                - dynamodb:Scan
+                - dynamodb:Query
+              Resource:
+            - !GetAtt DynamoDBTable0.Arn
+            - !GetAtt DynamoDBTable1.Arn
+            - !GetAtt DynamoDBTable2.Arn
+            - !GetAtt DynamoDBTable3.Arn
+            - !GetAtt DynamoDBTable4.Arn
+            - !GetAtt DynamoDBTable5.Arn
+            - !GetAtt DynamoDBTable6.Arn
+            - !GetAtt DynamoDBTable7.Arn
+            - !GetAtt DynamoDBTable8.Arn
+            - !GetAtt DynamoDBTable9.Arn
+            - !GetAtt DynamoDBTable10.Arn
+            - !GetAtt DynamoDBTable11.Arn
+            - !GetAtt DynamoDBTable12.Arn
+            - !GetAtt DynamoDBWeb.Arn
+            - !GetAtt DynamoDBTable14.Arn
+            - !GetAtt DynamoDBTable15.Arn
+            - !GetAtt DynamoDBTable16.Arn
+            - !GetAtt DynamoDBTable17.Arn
+            - !GetAtt DynamoDBTable18.Arn
+            - !GetAtt DynamoDBTable19.Arn
+            - !GetAtt DynamoDBTable20.Arn
+            - !GetAtt DynamoDBTable21.Arn
+            - !GetAtt DynamoDBTable22.Arn
+            - !GetAtt DynamoDBTable23.Arn
+            - !GetAtt DynamoDBTable24.Arn
+      Events:
+        ApiRoot:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AivicApi
+            Path: /api/{tableIndex}
+            Method: ANY
+        ApiItem:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AivicApi
+            Path: /api/{tableIndex}/{id}
+            Method: ANY
+        ApiOptions:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AivicApi
+            Path: /api/{proxy+}
+            Method: OPTIONS
+
+  # ── API Gateway ───────────────────────────────────────────────
+  AivicApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub "${AWS::StackName}-api"
+      StageName: !Ref StageName
+      Cors:
+        AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+        AllowOrigin: "'*'"
+
+Outputs:
+  ApiBaseUrl:
+    Description: "API Gateway base URL (config.js に設定してください)"
+    Value: !Sub "https://${AivicApi}.execute-api.${AWS::Region}.amazonaws.com/${StageName}"
+
+  Table0Name:
+    Description: "DynamoDB table name for 偏差値基準マスタ"
+    Value: !Ref DynamoDBTable0
+
+  Table1Name:
+    Description: "DynamoDB table name for 合格ライン偏差値マスタ"
+    Value: !Ref DynamoDBTable1
+
+  Table2Name:
+    Description: "DynamoDB table name for 予備校成績データ"
+    Value: !Ref DynamoDBTable2
+
+  Table3Name:
+    Description: "DynamoDB table name for 模試結果データ"
+    Value: !Ref DynamoDBTable3
+
+  Table4Name:
+    Description: "DynamoDB table name for 科目別成績データ"
+    Value: !Ref DynamoDBTable4
+
+  Table5Name:
+    Description: "DynamoDB table name for 偏差値履歴データ"
+    Value: !Ref DynamoDBTable5
+
+  Table6Name:
+    Description: "DynamoDB table name for 模試日程データ"
+    Value: !Ref DynamoDBTable6
+
+  Table7Name:
+    Description: "DynamoDB table name for 志望校登録データ"
+    Value: !Ref DynamoDBTable7
+
+  Table8Name:
+    Description: "DynamoDB table name for 合格可能性算出結果"
+    Value: !Ref DynamoDBTable8
+
+  Table9Name:
+    Description: "DynamoDB table name for 成績推移分析結果"
+    Value: !Ref DynamoDBTable9
+
+  Table10Name:
+    Description: "DynamoDB table name for 科目別分析結果"
+    Value: !Ref DynamoDBTable10
+
+  Table11Name:
+    Description: "DynamoDB table name for 助言コンテンツマスタ"
+    Value: !Ref DynamoDBTable11
+
+  Table12Name:
+    Description: "DynamoDB table name for 助言提案履歴"
+    Value: !Ref DynamoDBTable12
+
+  Table13Name:
+    Description: "DynamoDB table name for Webスクレイピング設定マスタ"
+    Value: !Ref DynamoDBWeb
+
+  Table14Name:
+    Description: "DynamoDB table name for 予備校サイト情報マスタ"
+    Value: !Ref DynamoDBTable14
+
+  Table15Name:
+    Description: "DynamoDB table name for データ取得ログ"
+    Value: !Ref DynamoDBTable15
+
+  Table16Name:
+    Description: "DynamoDB table name for 成績データ統合履歴"
+    Value: !Ref DynamoDBTable16
+
+  Table17Name:
+    Description: "DynamoDB table name for グラフ表示設定"
+    Value: !Ref DynamoDBTable17
+
+  Table18Name:
+    Description: "DynamoDB table name for 通知設定マスタ"
+    Value: !Ref DynamoDBTable18
+
+  Table19Name:
+    Description: "DynamoDB table name for 通知履歴"
+    Value: !Ref DynamoDBTable19
+
+  Table20Name:
+    Description: "DynamoDB table name for ログイン履歴"
+    Value: !Ref DynamoDBTable20
+
+  Table21Name:
+    Description: "DynamoDB table name for システム利用ログ"
+    Value: !Ref DynamoDBTable21
+
+  Table22Name:
+    Description: "DynamoDB table name for データ変更履歴"
+    Value: !Ref DynamoDBTable22
+
+  Table23Name:
+    Description: "DynamoDB table name for エラーログ"
+    Value: !Ref DynamoDBTable23
+
+  Table24Name:
+    Description: "DynamoDB table name for バッチ処理履歴"
+    Value: !Ref DynamoDBTable24
